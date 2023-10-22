@@ -49,23 +49,23 @@
     </div>
 
     <div class="container">
-        <form id="form">
+        <form id="form" method="post" action="index.php">
             <div class="form-group">
                 <label for="exampleInputEmail1">Insira o seu Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email aqui">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email aqui" name="email">
                 <small id="emailHelp" class="form-text text-warning">Use um email fictício</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Sua senha aqui">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Sua senha aqui" name="senha">
                 <small id="emailHelp" class="form-text text-warning">Use uma senha fictícia</small>
             </div>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="termos">
                 <label class="form-check-label" for="exampleCheck1">Aceito os termos e condições de TechMath</label>
             </div>
-            <a class="btn btn-outline-light btn-lg" href="painel.html" role="button">Entrar</a>
-          </form>
+            <a class="btn btn-outline-light btn-lg" type="submit" role="button">Entrar</a>
+        </form>
     </div>
 
       <br>
