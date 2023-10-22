@@ -33,7 +33,8 @@
         </div>
     </div>
 
-    <div>
+    <!--Apenas para testes, o site php mostrará a senha e o email digitados-->
+    <div style="padding: 10%;text-align: center;border: 5px solid black; background-color: #1B6DC1; color: white;border-top-left-radius: 100px;border-bottom-right-radius: 100px;margin: 10vh;">
         <?php
             $email = $_POST['email'];
             $senha = $_POST['senha'];
