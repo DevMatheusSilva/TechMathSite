@@ -1,0 +1,201 @@
+#logo{
+    animation: is-bouncing 5s ease-in-out infinite;
+    margin-left: 20%;
+    background-color: rgb(27, 26, 26);
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#navbar{
+    background-color: rgb(27, 26, 26);
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#cabecalho{
+    animation: fade 5s ease infinite;
+    background: linear-gradient(45deg,#1B6DC1, #f1da36, #f1da36,#1B6DC1);
+    background-size: 300% 300%;
+    height: 250px;
+    box-shadow: inset 0px 3px 10px #061b30;
+}
+
+#imagem{
+    padding: 300px;
+    background-image: url("imagens/matematica\(full\).jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*#imagem01{
+    margin-top: 50px;
+    margin-left: 100px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+}*/
+
+#tabela{
+    animation: show-up 2s ease forwards;
+    text-align: center; 
+}
+
+#titulo01{
+    color: white;
+    background-color: black;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#botao{
+    margin-left: 41%;
+}
+
+#jumbotron{
+    background-color: #1B6DC1;
+    color: white;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#div_metade{
+    background-color: black;
+    padding: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#depoimento{
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#rodape{
+    animation: fade 5s ease infinite;
+    box-shadow: inset 0px 3px 10px #061b30;
+    background: linear-gradient(45deg,#1B6DC1, #f1da36, #f1da36, #f1da36, #1B6DC1);
+    background-size: 300% 300%;
+}
+
+#logo_pequena{
+    background-color: black;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    margin-top: 30px;
+}
+
+#texto_rodape{
+    margin-top: 10px;
+    margin-right: 200px;
+    color: black;
+    text-align: justify;
+}
+
+#info{
+    color: black;
+    margin-left: 100px;
+}
+
+#cursos{
+    margin-top: 100px;
+}
+
+#breadcrumb{
+    background-color: black; 
+    color: white;
+}
+
+#breadcrumb_nav{
+    background-color: black;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
+#form{
+    margin-top: 100px;
+    padding: 20px;
+    background-color:black;
+    color: white;
+    box-shadow: 0px 3px 10px #061b30;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+#base_mat{
+    margin-top: 100px;
+}
+
+#cabecalho_tabela{
+    background-color: black;
+}
+
+.alunos{
+    margin-left: 50px;
+    background: linear-gradient(white, rgb(138, 134, 134),white);
+    text-align: center;
+    color: black;
+}
+
+.total{
+    margin-top: 100px;
+    background-color: rgb(27, 26, 26);
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+    color: white;
+    padding: 10px;
+}
+
+.separacao{
+    margin-top: 100px;
+}
+
+.centro{
+    margin-left: 380px;
+}
+
+@keyframes fade{
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes is-bouncing {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+       
+        transform: translateY(5%);
+    }
+    100%{
+       
+        transform: translateY(0%)
+    }
+}
+
+@keyframes show-up {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+/*créditos a João Sperandio Neto*/
