@@ -1,3 +1,43 @@
+<?php 
+    include("conexao.php");
+
+    if (isset($_POST['email']) || isset($_POST['senha'])){
+        if (strlen($_POST['email']) == 0){
+            echo "Preencha seu email";
+        }
+        else if (strlen($_POST['senha']) == 0){
+            echo "Preencha sua senha";
+        }
+    }
+    else{
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
+
+        $qtdd = $sql_query->num_rows;
+
+        if ($quantidade == 1){
+            $usuario = $sql_query->fetch_assoc();
+            
+            if (!isset($_SESSION)){
+                session_start();
+            }
+    
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+    
+            header("Location: index.php");
+        }
+        else{
+            echo "Falha ao logar, email ou senha incorretos";
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -49,7 +89,7 @@
     </div>
 
     <div class="container">
-        <form id="form" method="post" action="index.php">
+        <form id="form" method="post" action="">
             <div class="form-group">
                 <label for="exampleInputEmail1">Insira o seu Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email aqui" name="email">
@@ -66,6 +106,11 @@
             </div>
             <button type="submit" class="btn btn-dark">Enviar</button>
         </form>
+
+        <div class="container text-center" id="form">
+            <p>Não possui uma conta ?</p>
+            <a class="btn btn-dark" href="cadastro.php">Cadastrar-se</a>
+        </div>
     </div>
 
       <br>
