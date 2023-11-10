@@ -119,7 +119,7 @@
 }
 
 #form{
-    margin-top: 100px;
+    margin-top: 5%;
     padding: 20px;
     background-color:black;
     color: white;
@@ -161,9 +161,6 @@
     margin-left: 380px;
 }
 
-.erro{
-    margin-top: 100px;
-}
 @keyframes fade{
     0%{
         background-position: 0% 50%;
