@@ -44,7 +44,16 @@
     <div class="container" id="base_mat">
         <div class="row">
             <div class="col-lg">
-                <img src="imagens/Bases Matemáticas (full).png" alt="logo curso">
+                <img src="imagens/Bases Matemáticas (full).png" alt="logo curso" style="border-radius: 10px;"><br><br>
+                <form action="provas/regras_prova_fin_bm.php" method="post">
+                    <div class="form-check" style="margin-left: 150px;">
+                        <input class="form-check-input" type="checkbox" value="bm-concluido" name="verificacao" style="transform: scale(1.5);">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Concluir Curso
+                        </label>
+                    </div><br>
+                    <button type="submit" class="btn btn-dark mt-3" style="margin-left: 155px">Prova Final</button>
+                </form>
             </div>
 
             <div class="col-lg">
