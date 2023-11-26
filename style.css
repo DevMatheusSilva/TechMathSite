@@ -136,6 +136,10 @@
     background-color: black;
 }
 
+#dropdown{
+    color: white;
+}
+
 .alunos{
     margin-left: 50px;
     background: linear-gradient(white, rgb(138, 134, 134),white);

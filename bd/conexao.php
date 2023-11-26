@@ -8,7 +8,4 @@
     if ($conexao->connect_error) {
         die(''. $conexao->connect_error);
     }
-    else{
-        echo ("<br><h1>Conexão Realizada com Sucesso</h1>");
-    }
 ?>
