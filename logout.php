@@ -6,26 +6,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <title>TechPainel - Acompanhe seus cursos</title>
+    <title>TechMath - Aprenda Math com Tech</title>
 </head>
-
 <body>
     <div class="container-fluid" id="cabecalho">
         <div class="row align-items-center">
             <div class="col">
                 <img src="imagens/logo(edit).png" alt="Logotipo_TechMath" id="logo"><!--<div>Logótipo feito com <a href="https://www.designevo.com/pt/" title="Criador de Logótipos Online Grátis">DesignEvo</a></div>-->
             </div>
-
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
                     <a class="navbar-brand" href="index.html">TechMath</a>
-                    
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="cursos.html">Cursos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="painel.html">Painel</a>
+                            <a class="nav-link" href="painel.php">Painel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cadastrar.html">Cadastro</a>
@@ -33,94 +30,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="login.html">Login</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="logout.php">Logout</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
     
-    <div class="container"> 
-        <h1 style="margin-top: 100px;">Meu Painel</h1>
-        <nav class="breadcrumb" id="breadcrumb_nav">
-            <ol class="breadcrumb" id="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page"><a href="index.html">Início</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Meu Painel</li>
-            </ol>
-        </nav>
-    </div>
+    <?php 
+        include("bd/logout.php");
+        echo "<h1 id = 'feedback'>Logout Realizado com Sucesso</h1>";
+    ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg">
-                <div class="card bg-warning text-white" style="width: 18rem; margin-top: 100px;">
-                    <img class="card-img-top" src="imagens/curso_realizado_icone.png" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <p class="card-text h3">Meus Cursos</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg">
-                <p class="h3 text-center total">Cursos em andamento: 5</p>
-                <ul style="margin-top: 50px;">
-                    <li><p class="h3">Bases Matemáticas</p></li>
-                    <li><p class="h3">Java</p></li>
-                    <li><p class="h3">Excel</p></li>
-                    <li><p class="h3">GeoGebra</p></li>
-                    <li><p class="h3">Geometria</p></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg">
-                <div class="card bg-primary text-white" style="width: 18rem; margin-top: 100px;">
-                    <img class="card-img-top" src="imagens/curso_finalizado_icone.png" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <p class="card-text h3">Cursos Finalizados</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg">
-                <p class="h3 text-center total">Cursos Finalizados: 3</p>
-                <ul style="margin-top: 50px;">
-                    <li><p class="h3">Bases Numéricas</p></li>
-                    <li><p class="h3">Word</p></li>
-                    <li><p class="h3">VBA - Visual Basic for Application</p></li>
-                </ul>
-            </div>     
-        </div>
-        
-        <div class="row">
-            <div class="col-lg">
-                <div class="card bg-success text-white" style="width: 18rem; margin-top: 100px;">
-                    <img class="card-img-top" src="imagens/curso_finalizado_icone.png" alt="Imagem de capa do card">
-                    <div class="card-body">
-                        <p class="card-text h3">Certificados Emitidos</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg">
-                <p class="h3 text-center total">Total de emissões: 3</p>
-                <ul style="margin-top: 50px;">
-                    <li><p class="h3">Bases Numéricas</p></li>
-                    <li><p class="h3">Word</p></li>
-                    <li><p class="h3">VBA - Visual Basic for Application</p></li>
-                </ul>
-            </div>     
-        </div>
-    </div>
-
-    <br>
-
-    <div class="container-fluid">
-        <p class="h3 text-center total">Ir para a página de cursos: <br> <a href="cursos.html">Cursos</a></p>
-        <br>
-    </div>
-
-    <div class="container-fluid" id="rodape">
+    <div class="container-fluid" id="rodape" style="margin-top: 200px">
         <div class="row align-items-center">
             <div class="col-lg">
                 <img src="imagens/logo(small).png" alt="logo pequena" id="logo_pequena">
@@ -146,4 +70,3 @@
             </div>        
     </div>
 </body>
-</html>

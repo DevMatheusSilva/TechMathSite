@@ -1,28 +1,35 @@
+<?php 
+    include("bd/protect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>TechCursos - Bases Matemáticas</title>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>TechPainel - Acompanhe seus cursos</title>
 </head>
+
 <body>
     <div class="container-fluid" id="cabecalho">
         <div class="row align-items-center">
             <div class="col">
                 <img src="imagens/logo(edit).png" alt="Logotipo_TechMath" id="logo"><!--<div>Logótipo feito com <a href="https://www.designevo.com/pt/" title="Criador de Logótipos Online Grátis">DesignEvo</a></div>-->
             </div>
+
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-                    <a class="navbar-brand active" href="index.html">TechMath</a>
+                    <a class="navbar-brand" href="index.html">TechMath</a>
+                    
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="cursos.html">Cursos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="painel.php">Painel</a>
+                            <a class="nav-link active" href="painel.php">Painel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cadastrar.html">Cadastro</a>
@@ -38,22 +45,48 @@
             </div>
         </div>
     </div>
+    
+    <div class="container"> 
+        <h1 style="margin-top: 100px;">Painel de 
+        <?php
+            echo $_SESSION['nome_usuario'];
+        ?></h1>
+        <nav class="breadcrumb" id="breadcrumb_nav">
+            <ol class="breadcrumb" id="breadcrumb">
+                <li class="breadcrumb-item" aria-current="page"><a href="index.html">Início</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Meu Painel</li>
+            </ol>
+        </nav>
+    </div>
 
-    <h1 class="text-center separacao" id="titulo01">Bases Matemáticas: Aula 01</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <div class="card bg-warning text-white" style="width: 18rem; margin-top: 100px;">
+                    <img class="card-img-top" src="imagens/curso_realizado_icone.png" alt="Imagem de capa do card">
+                    <div class="card-body">
+                        <p class="card-text h3">Meus Cursos</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="container" style="margin-top: 100px;">
-        <div class="col-lg" id="video">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/e78_5WIssSU?si=yKIBAmwB4fUzhF8U" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="col-lg">
+                <p class="h3 text-center total">Cursos em andamento: 5</p>
+                <ul style="margin-top: 50px;">
+                    <li><p class="h3">Bases Matemáticas</p></li>
+                    <li><p class="h3">Java</p></li>
+                    <li><p class="h3">Excel</p></li>
+                    <li><p class="h3">GeoGebra</p></li>
+                    <li><p class="h3">Geometria</p></li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <p class="text-center">Créditos ao canal <strong>Professor Ferreto</strong> que gravou as aulas de exempo deste Curso</p>
-    
+    <br>
+
     <div class="container-fluid">
-        <p class="h3 text-center total">Ir para a página inicial do curso: <br> <a href="bases_matematicas.html">Bases Matemáticas</a></p>
+        <p class="h3 text-center total">Ir para a página de cursos: <br> <a href="cursos.html">Cursos</a></p>
         <br>
     </div>
 
