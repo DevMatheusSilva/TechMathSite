@@ -1,5 +1,6 @@
 <?php 
     include("bd/protect.php");
+    include ('bd/conexao.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@
                     
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="cursos.html">Cursos</a>
+                            <a class="nav-link" href="cursos.php">Cursos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="painel.php">Painel</a>
@@ -72,6 +73,46 @@
 
             <div class="col-lg">
                 <p class="h3 text-center total">Cursos em andamento: 5</p>
+                <?php
+               //Recebendo valores
+                if(isset($_POST['curso'][0], $_POST['curso'][1])){
+                    $nomeCurso = $_POST['curso'][0];
+                    $horasCurso = $_POST['curso'][1];
+                    $id_user = $_SESSION['id'];
+
+                    //Achando o id do curso
+                    $sql = "SELECT * from cursos where nome = '$nomeCurso'";
+                    $sql_query_curso = $conexao->query($sql);
+                    $dados = $sql_query_curso->fetch_assoc();
+            
+                    $id_curso = isset($dados['id_curso']) ? $dados['id_curso'] : null;
+                    $_SESSION['id_curso'] = $id_curso;
+            
+                    //impdindo que o usuário adicione o mesmo curso duas vezes
+                    $sql = "SELECT * from matricula where usuario = '$id_user' and curso = '$id_curso'";
+                    $sql_query_user = $conexao->query($sql);
+            
+                    //adicionando valores nas tabelas
+                    if($sql_query_user->num_rows == 0){
+            
+                        if($sql_query_curso->num_rows == 0){
+                            
+                            $sql = "INSERT into cursos values (default, '$nomeCurso', '$horasCurso')";
+                            $conexao->query($sql);
+            
+                            $id_curso = $conexao->insert_id;
+            
+                            $sql = "INSERT into matricula values ('$id_user', '$id_curso')";
+                            $conexao->query($sql);
+            
+                        }else{
+                            $sql = "INSERT into matricula values ('$id_user', '$id_curso')";
+                            $conexao->query($sql);
+                        }
+                    }
+                }
+            ?>
+            
                 <ul style="margin-top: 50px;">
                     <li><p class="h3">Bases Matemáticas</p></li>
                     <li><p class="h3">Java</p></li>
@@ -86,7 +127,7 @@
     <br>
 
     <div class="container-fluid">
-        <p class="h3 text-center total">Ir para a página de cursos: <br> <a href="cursos.html">Cursos</a></p>
+        <p class="h3 text-center total">Ir para a página de cursos: <br> <a href="cursos.php">Cursos</a></p>
         <br>
     </div>
 

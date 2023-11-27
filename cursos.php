@@ -1,3 +1,10 @@
+<?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,7 +28,7 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="cursos.html">Cursos</a>
+                            <a class="nav-link active" href="cursos.php">Cursos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="painel.php">Painel</a>
@@ -95,7 +102,37 @@
                         <div class="card-body">
                             <h5 class="card-title">Matemática Superior</h5>
                             <p class="card-text">Conteúdo referente à matemática de ensino superior</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+
+                            <!--Fazendo a inscrição em um curso-->
+                            <?php
+                                include('bd/conexao.php');
+                                
+                                $id_user = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+                                $id_curso = isset($_SESSION['id_curso']) ? $_SESSION['id_curso'] : null;
+
+
+                                $sql = "SELECT * from matricula where usuario = '$id_user' and curso = '$id_curso'";
+                                $sql_query_user = $conexao->query($sql);
+
+                                if($sql_query_user->num_rows == 0){
+
+            
+                            ?>
+                            <form action="painel.php" method="post">
+                                <input type="hidden" value="Matemática Superior" name="curso[]">
+                                <input type="hidden" value="40:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer</button>
+
+                            <?php
+                                }else{
+                                    
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            </form>
+
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

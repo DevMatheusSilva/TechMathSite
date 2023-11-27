@@ -157,6 +157,18 @@ div.centro h1{
     margin-top: 200px;
 }
 
+#citacao{
+    animation: fade 5s ease infinite;
+    background: linear-gradient(45deg, white, #dceeff ,white);
+    background-size: 300%;
+    margin-top: 50px;
+    border: 3px solid black;
+    padding: 20px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0px 3px 10px #061b30;
+}
+
 .alunos{
     margin-left: 50px;
     background: linear-gradient(white, rgb(138, 134, 134),white);
