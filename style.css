@@ -182,6 +182,10 @@ div.centro h1{
     margin-left: 380px;
 }
 
+.questao{
+    margin-top: 100px;
+}
+
 @keyframes fade{
     0%{
         background-position: 0% 50%;

@@ -61,7 +61,7 @@
             </div>
             <hr>
             <h4 style="text-align: center">A equipe do TechMath te deseja uma Boa Sorte</h4><br>
-            <button class="btn btn-dark btn-lg" style="margin-left: 45%;">Realizar Avaliação</button>
+            <a href="prova_bm.html"><button class="btn btn-dark btn-lg" style="margin-left: 45%;">Realizar Avaliação</button></a>
             ';
         } else {
             echo "<h1 id='feedback'>O curso ainda não foi finalizado</h1>";
