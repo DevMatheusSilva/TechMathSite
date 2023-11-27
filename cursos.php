@@ -107,21 +107,19 @@
                             <?php
                                 include('bd/conexao.php');
                                 
-                                $id_user = isset($_SESSION['id']) ? $_SESSION['id'] : null;
-                                $id_curso = isset($_SESSION['id_curso']) ? $_SESSION['id_curso'] : null;
+                                $id_user = $_SESSION['id'];
+                                
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us on us.id_user = ma.usuario join cursos c on c.id_curso = ma.curso where us.id_user = '$id_user';";
+                                $curso = $conexao->query($sql_curso);
 
+                                if($curso == 'Matemática Superior'){
 
-                                $sql = "SELECT * from matricula where usuario = '$id_user' and curso = '$id_curso'";
-                                $sql_query_user = $conexao->query($sql);
-
-                                if($sql_query_user->num_rows == 0){
-
-            
                             ?>
                             <form action="painel.php" method="post">
                                 <input type="hidden" value="Matemática Superior" name="curso[]">
                                 <input type="hidden" value="40:00:00" name="curso[]">
-                                <button class="btn btn-dark">Fazer</button>
+                                <button class="btn btn-dark">Fazer este Curso</button>
 
                             <?php
                                 }else{
@@ -142,7 +140,34 @@
                         <div class="card-body">
                             <h5 class="card-title">Geometria</h5>
                             <p class="card-text">Curso completo sobre Geometria plana e Espacial</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php
+                                include('bd/conexao.php');
+                                
+                                $id_user = $_SESSION['id'];
+                                
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us on us.id_user = ma.usuario join cursos c on c.id_curso = ma.curso where us.id_user = '$id_user';";
+                                $curso = $conexao->query($sql_curso);
+
+                                if($curso == 'Geometria'){
+
+                                ?>
+                                <form action="painel.php" method="post">
+                                    <input type="hidden" value="Geometria" name="curso[]">
+                                    <input type="hidden" value="20:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+
+                                <?php
+                                    }else{
+                                        
+                                ?>
+                                    <a class="btn btn-dark" href="#">Continuar</a>
+                                </form>
+                                   
+                                <?php
+                                    }
+                                ?>
+                                
                         </div>
                     </div>
                 </div>

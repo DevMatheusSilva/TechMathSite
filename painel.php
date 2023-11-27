@@ -112,14 +112,36 @@
                     }
                 }
             ?>
-            
-                <ul style="margin-top: 50px;">
+                
+                <?php
+                    //Mostrando cursos em andamento
+                    $id_user = $_SESSION['id'];
+
+                    $sql_join = "SELECT c.nome from usuarios us join matricula ma
+                    on us.id_user = ma.usuario join cursos c
+                    on c.id_curso = ma.curso where us.id_user = '$id_user';";
+               
+                    $sql_query_join = $conexao->query($sql_join);
+                   
+                    while($curso = $sql_query_join->fetch_assoc()){
+                        
+                        echo "<ul style='margin-top: 50px;'>
+                                <li><p class='h3'>".$curso['nome']."</p></li>
+                            </ul>";
+                    }
+
+                    if(isset($curso['nome'])){
+                        echo "<p class='h3'>Cursando nunhum curso no momento</p>";
+                    }
+                
+                ?>
+                <!--<ul style="margin-top: 50px;">
                     <li><p class="h3">Bases Matemáticas</p></li>
                     <li><p class="h3">Java</p></li>
                     <li><p class="h3">Excel</p></li>
                     <li><p class="h3">GeoGebra</p></li>
                     <li><p class="h3">Geometria</p></li>
-                </ul>
+                </ul>-->
             </div>
         </div>
     </div>
