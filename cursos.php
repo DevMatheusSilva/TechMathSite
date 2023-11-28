@@ -71,7 +71,44 @@
                         <div class="card-body">
                             <h5 class="card-title">Bases Matemáticas</h5>
                             <p class="card-text">Curso envolvendo conceitos básicos sobre números, algarismos e operações fundamentais</p>
-                            <a href="bases_matematicas.html" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php
+                            
+                                include('bd/conexao.php');
+
+                                $id_user = $_SESSION['id'];
+                                
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Bases Matemáticas'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
+
+                                ?>
+                                <form action="painel.php" method="post" id="curso1">
+                                    <input type="hidden" value="Bases Matemáticas" name="curso[]">
+                                    <input type="hidden" value="120:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+                                </form>
+                                <?php
+                                    }else{
+                                          
+                                ?>
+                                <a href="bases_matematicas.html" class="btn btn-dark">Continuar</a>
+                                
+
+                                <?php
+                                    }
+                                ?>       
+                            
                         </div>
                     </div>
                 </div>
@@ -81,7 +118,39 @@
                         <div class="card-body">
                             <h5 class="card-title">Matemática Fundamental I</h5>
                             <p class="card-text">Aprofundamento Teórico sobre conjuntos numéricos, bases numéricas, e introdução a funções/relações</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php                                      
+
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Matemática Fundamental I'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
+
+                                ?>
+                                <form action="painel.php" method="post" id="curso2">
+                                    <input type="hidden" value="Matemática Fundamental I" name="curso[]">
+                                    <input type="hidden" value="100:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+                                </form>
+                                <?php
+                                    }else{
+                                        
+                                ?>
+                                <a href="#" class="btn btn-dark">Continuar</a>
+                                
+                                <?php
+                                    }
+                                ?>       
+                            
                         </div>
                     </div>
                 </div>
@@ -91,7 +160,39 @@
                         <div class="card-body">
                             <h5 class="card-title">Matemática Fundamental II</h5>
                             <p class="card-text">Funções, Relações, e aprofundamento do conteúdo intermediário de matemática</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php                               
+
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Matemática Fundamental II'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
+
+                                ?>
+                                <form action="painel.php" method="post" id="curso3">
+                                    <input type="hidden" value="Matemática Fundamental II" name="curso[]">
+                                    <input type="hidden" value="80:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+                                </form>
+                                <?php
+                                    }else{
+                                        
+                                ?>
+                                <a href="#" class="btn btn-dark">Continuar</a>
+                                
+
+                                <?php
+                                    }
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -105,28 +206,35 @@
 
                             <!--Fazendo a inscrição em um curso-->
                             <?php
-                                include('bd/conexao.php');
-                                
-                                $id_user = $_SESSION['id'];
-                                
+                                                               
                                 //Verifcando se o usuário já esta fazendo o curso
-                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us on us.id_user = ma.usuario join cursos c on c.id_curso = ma.curso where us.id_user = '$id_user';";
-                                $curso = $conexao->query($sql_curso);
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
 
-                                if($curso == 'Matemática Superior'){
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Matemática Superior'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
 
                             ?>
-                            <form action="painel.php" method="post">
+                            <form action="painel.php" method="post" id="curso4">
                                 <input type="hidden" value="Matemática Superior" name="curso[]">
                                 <input type="hidden" value="40:00:00" name="curso[]">
                                 <button class="btn btn-dark">Fazer este Curso</button>
-
+                            </form>
                             <?php
                                 }else{
                                     
+                                    
                             ?>
                                 <a class="btn btn-dark" href="#">Continuar</a>
-                            </form>
+                            
 
                             <?php
                                 }
@@ -140,29 +248,34 @@
                         <div class="card-body">
                             <h5 class="card-title">Geometria</h5>
                             <p class="card-text">Curso completo sobre Geometria plana e Espacial</p>
-                            <?php
-                                include('bd/conexao.php');
-                                
-                                $id_user = $_SESSION['id'];
-                                
+                            <?php                              
+
                                 //Verifcando se o usuário já esta fazendo o curso
                                 $sql_curso = "SELECT c.nome from matricula ma join usuarios us on us.id_user = ma.usuario join cursos c on c.id_curso = ma.curso where us.id_user = '$id_user';";
-                                $curso = $conexao->query($sql_curso);
+                                $sql_query = $conexao->query($sql_curso);
 
-                                if($curso == 'Geometria'){
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Geometria'){
+                                        $aux = 1;
+                                    }
+                                }
+
+                                if($aux == 0){
 
                                 ?>
-                                <form action="painel.php" method="post">
+                                <form action="painel.php" method="post" id="curso5">
                                     <input type="hidden" value="Geometria" name="curso[]">
                                     <input type="hidden" value="20:00:00" name="curso[]">
                                     <button class="btn btn-dark">Fazer este Curso</button>
-
+                                </form>
                                 <?php
                                     }else{
                                         
                                 ?>
                                     <a class="btn btn-dark" href="#">Continuar</a>
-                                </form>
+                                
                                    
                                 <?php
                                     }
@@ -177,7 +290,40 @@
                         <div class="card-body">
                             <h5 class="card-title">Funções</h5>
                             <p class="card-text">Curso focado no ensino das funções matemáticas, usando o software GeoGebra para exemplificação prática</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php                              
+                                
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Funções'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
+
+                                ?>
+                                <form action="painel.php" method="post" id="curso6">
+                                    <input type="hidden" value="Funções" name="curso[]">
+                                    <input type="hidden" value="80:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+                                </form>
+                                <?php
+                                    }else{
+                                        
+                                        
+                                ?>
+                                    <a class="btn btn-dark" href="#">Continuar</a>
+                                
+
+                                <?php
+                                    }
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -187,7 +333,40 @@
                         <div class="card-body">
                             <h5 class="card-title">Bases Numéricas</h5>
                             <p class="card-text">Matemática de nível computacional, focada nas bases numéricas e sua relação entre si</p>
-                            <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                            <?php                              
+
+                                //Verifcando se o usuário já esta fazendo o curso
+                                $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                                on ma.usuario = us.id_user join cursos c 
+                                on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                                $sql_query = $conexao->query($sql_curso);
+                                
+                                $aux = 0;
+
+                                while($dados = $sql_query->fetch_assoc()){
+                                    if($dados['nome'] == 'Bases Numéricas'){
+                                        $aux = 1;
+                                    }
+                                }
+                                if($aux == 0){
+
+                                ?>
+                                <form action="painel.php" method="post" id="curso7">
+                                    <input type="hidden" value="Bases Numéricas" name="curso[]">
+                                    <input type="hidden" value="30:00:00" name="curso[]">
+                                    <button class="btn btn-dark">Fazer este Curso</button>
+                                </form>
+                                <?php
+                                    }else{
+                                        
+                                        
+                                ?>
+                                    <a class="btn btn-dark" href="#">Continuar</a>
+                                
+
+                                <?php
+                                    }
+                                ?>                           
                         </div>
                     </div>
                 </div>
@@ -205,7 +384,40 @@
                     <div class="card-body">
                         <h5 class="card-title">Word</h5>
                         <p class="card-text">Curso Básico de Microsoft Word</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                        <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'Word'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="Word" name="curso[]">
+                                <input type="hidden" value="40:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                    
+                                    
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>         
+    
                     </div>
                 </div>
             </div>
@@ -216,7 +428,38 @@
                     <div class="card-body">
                         <h5 class="card-title">Excel</h5>
                         <p class="card-text">Curso Básico de Microsoft Excel</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                        <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'Excel'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="Excel" name="curso[]">
+                                <input type="hidden" value="60:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
@@ -227,7 +470,38 @@
                     <div class="card-body">
                         <h5 class="card-title">VBA - Visual Basic for Application</h5>
                         <p class="card-text">Curso complementar para Excel</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                         <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'VBA'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="VBA" name="curso[]">
+                                <input type="hidden" value="70:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>

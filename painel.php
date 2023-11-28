@@ -1,6 +1,10 @@
 <?php 
     include("bd/protect.php");
     include ('bd/conexao.php');
+
+    if(!isset($_SESSION)){
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +76,18 @@
             </div>
 
             <div class="col-lg">
-                <p class="h3 text-center total">Cursos em andamento: 5</p>
+                <p class="h3 text-center total">Cursos em andamento</p>
                 <?php
+
+                
+
                //Recebendo valores
                 if(isset($_POST['curso'][0], $_POST['curso'][1])){
                     $nomeCurso = $_POST['curso'][0];
                     $horasCurso = $_POST['curso'][1];
                     $id_user = $_SESSION['id'];
+
+                    $_SESSION['curso'] = $nomeCurso;
 
                     //Achando o id do curso
                     $sql = "SELECT * from cursos where nome = '$nomeCurso'";
@@ -135,13 +144,11 @@
                     }
                 
                 ?>
-                <!--<ul style="margin-top: 50px;">
-                    <li><p class="h3">Bases Matemáticas</p></li>
-                    <li><p class="h3">Java</p></li>
-                    <li><p class="h3">Excel</p></li>
-                    <li><p class="h3">GeoGebra</p></li>
-                    <li><p class="h3">Geometria</p></li>
-                </ul>-->
+
+                <form action="cancelMatricula.php" method="post">
+                    <div class="row-6"><button class="btn btn-dark ">Cancelar Matricula</button></div>
+                </form>
+               
             </div>
         </div>
     </div>
