@@ -512,7 +512,38 @@
                     <div class="card-body">
                         <h5 class="card-title">Java</h5>
                         <p class="card-text">Linguagem Java</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                         <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'Java'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="Java" name="curso[]">
+                                <input type="hidden" value="120:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
@@ -523,7 +554,38 @@
                     <div class="card-body">
                         <h5 class="card-title">GeoGebra</h5>
                         <p class="card-text">Uso Prático do GeoGebra</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                         <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'GeoGebra'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="GeoGebra" name="curso[]">
+                                <input type="hidden" value="40:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
@@ -534,7 +596,38 @@
                     <div class="card-body">
                         <h5 class="card-title">Estatística com Excel</h5>
                         <p class="card-text">Curso prático de Estatística no Excel</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                         <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'Estatística com Excel'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="Estatística com Excel" name="curso[]">
+                                <input type="hidden" value="80:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
@@ -545,7 +638,38 @@
                     <div class="card-body">
                         <h5 class="card-title">Estatística com GeoGebra</h5>
                         <p class="card-text">Curso apresentando as principais ferramentas para análise estatística usando GeoGebra</p>
-                        <a href="#" class="btn btn-dark">Fazer esse Curso</a>
+                         <?php                              
+
+                            //Verifcando se o usuário já esta fazendo o curso
+                            $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
+                            on ma.usuario = us.id_user join cursos c 
+                            on ma.curso = c.id_curso where us.id_user = '$id_user';";
+                            $sql_query = $conexao->query($sql_curso);
+                            
+                            $aux = 0;
+
+                            while($dados = $sql_query->fetch_assoc()){
+                                if($dados['nome'] == 'Estatística com GeoGebra'){
+                                    $aux = 1;
+                                }
+                            }
+                            if($aux == 0){
+
+                            ?>
+                            <form action="painel.php" method="post" id="curso7">
+                                <input type="hidden" value="Estatística com GeoGebra" name="curso[]">
+                                <input type="hidden" value="40:00:00" name="curso[]">
+                                <button class="btn btn-dark">Fazer este Curso</button>
+                            </form>
+                            <?php
+                                }else{
+                                         
+                            ?>
+                                <a class="btn btn-dark" href="#">Continuar</a>
+                            
+                            <?php
+                                }
+                            ?>
                     </div>
                 </div>
             </div>

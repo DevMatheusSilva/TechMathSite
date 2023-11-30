@@ -52,12 +52,6 @@
                     • As questões irão abordar <strong>todo o conteúdo compreendido neste curso</strong>, para tanto, <strong>você deverá tê-lo concluído</strong> antes de realizar esta avaliação<br>
                     • <strong>Nenhuma ajuda</strong> será prestada durante a prova, você deverá provar que aprendeu todos os conceitos abordados neste curso sem facilitações
                 </p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="aceito" id="flexCheckDefault" disabled checked>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Declaro que compreendi as regras acima e estou disposto a segui-las à risca
-                    </label>
-                </div>
             </div>
             <hr>
             <h4 style="text-align: center">A equipe do TechMath te deseja uma Boa Sorte</h4><br>
