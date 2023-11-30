@@ -75,7 +75,7 @@
                             
                                 include('bd/conexao.php');
 
-                                $id_user = $_SESSION['id'];
+                                $id_user = isset($_SESSION['id']) ? $_SESSION['id'] : null;
                                 
                                 //Verifcando se o usuário já esta fazendo o curso
                                 $sql_curso = "SELECT c.nome from matricula ma join usuarios us 
