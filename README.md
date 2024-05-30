@@ -33,9 +33,8 @@ Para rodar este projeto localmente, siga os passos abaixo:
    ```
 
 3. Configure o banco de dados MySQL usando o arquivo \`database.sql\`:
-   - Importe `database.sql` no seu PHPMyAdmin ou use o seguinte comando no terminal MySQL:
     ```bash
-   sql source /caminho/para/database.sql;
+   sql source /caminho/para/database.sql
    ```
 
 4. Configure o servidor web para servir o projeto, por exemplo, usando o XAMPP ou WAMP. Certifique-se de que o PHP e o MySQL estejam funcionando.
@@ -51,17 +50,17 @@ Contribuições são bem-vindas! Se você deseja contribuir, por favor, siga os 
 
 1. Faça um fork deste repositório.
 2. Crie uma nova branch:
-   \`\`\`bash
+   ```bash
    git checkout -b minha-nova-feature
-   \`\`\`
+   ```
 3. Faça suas alterações e commit:
-   \`\`\`bash
+   ```bash
    git commit -m 'Adicionar nova feature'
-   \`\`\`
+   ```
 4. Envie para a branch principal:
-   \`\`\`bash
+   ```bash
    git push origin minha-nova-feature
-   \`\`\`
+   ```
 5. Crie um Pull Request.
 
 ## Contato
